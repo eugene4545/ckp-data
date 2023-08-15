@@ -1,0 +1,56 @@
+//------------PROCEDURE----------------------------------------------------------------------------//
+PROCEDURE procedure_name(v1, v2: INTEGER[100], VAR ps : INTEGER)//we set the name of the procedure and the procedure parameters
+VAR
+    i : INTEGER; // i is set to integer 
+BEGIN
+    IF (v1.length = v2.length) THEN // we begin by setting a condition if the array of v1 is equal to v2 then the "for" statement will run 
+        FOR i FROM 0 TO V1.length DO// the loop index i will go through the entire length of the v1 array  if  v1 =v2 
+           ps := ps + v1[i] * v2[i];// and then it finds the dot product and stores it inside ps
+    END_FOR
+    write("Dot product of the vector is ", ps);//it prints out the string with the dot product 
+    ELSE
+        write("Vector length not equal");// if v1 is not equal to v2, this will print out to the console
+    END_IF
+END
+//------------------------ALGORITHM--------------------------------------------------------------------
+ALGORITHM dot_product //we name the algorithim
+VAR                      // set variables for the algorithim
+    V1,V2 : INTEGER[100];//here we set the variables, call the data type and set the maximum size of the array
+    ps,n1,n2,i : INTEGER := 0;// setting the variables and data type
+BEGIN
+    write("Please enter the size of the first vector (max size is 100)");// we ask the user to the size of his/her first vector
+    Read(n1);                                                           //we read the users input
+    FOR i FROM 0 TO n1 DO                    //we set our loop index to go through the users array 'n1'
+        Read(V1[i])                      // we set each element to v1 
+    END_FOR
+
+    write("Please enter the size of the second vector (max size is 100)");// we set the console to ask the user for an input 
+    Read(n2);   //read the users input 
+    FOR i FROM 0 TO n2 DO //we itirate through the users array just like for the first loop
+        Read(V2[i])// store the data of each element in the index to v2
+    END_FOR
+
+    dot_product(V1,V2,ps);// calculate the dot product of v1 and v2 and store them in the ps variable
+
+    IF (ps = 0) THEN// if the ps is equal to 0 
+        write("V1 and V2 are not orthogonal");//THEN we print this string 
+    END_IF
+END
+//---------------------------FUNCTION-------------------------------------------------------------------------------------//
+FUNCTION dot_product(v1,v2: INTEGER[100]) : INTEGER //we declare the function and its parameters, the size and set the data type
+VAR  // we set the variable
+    ps,i : INTEGER := 0;// dot product, loop index data type and value set to 0
+BEGIN
+    IF (v1.length = v2.length) THEN //the if statements measures if the v1 array is equal to the v2 array, if so it executes the for loop
+        FOR i FROM 0 TO v1.length DO// i goes through each element in the v1 array and stores its value 
+            ps := ps + v1[i] * v2[i];//we calculate the dot product and store the value in ps  
+        END_FOR
+        RETURN ps;// return the value of the calculated dot product 
+    ELSE
+        Write("Vector length not equal");//if v1 is not equal to v2 print string 
+        RETURN NaN; // return not a number for error
+    END_IF
+END
+
+
+
