@@ -1,4 +1,4 @@
-//------------PROCEDURE----------------------------------------------------------------------------//
+//------------PROCEDURE (1)----------------------------------------------------------------------------//
 PROCEDURE procedure_name(v1, v2: INTEGER[100], VAR ps : INTEGER)//we set the name of the procedure and the procedure parameters
 VAR
     i : INTEGER; // i is set to integer 
@@ -12,7 +12,7 @@ BEGIN
         write("Vector length not equal");// if v1 is not equal to v2, this will print out to the console
     END_IF
 END
-//------------------------ALGORITHM--------------------------------------------------------------------
+//------------------------ALGORITHM  (2)--------------------------------------------------------------------
 ALGORITHM dot_product //we name the algorithim
 VAR                      // set variables for the algorithim
     V1,V2 : INTEGER[100];//here we set the variables, call the data type and set the maximum size of the array
@@ -36,7 +36,7 @@ BEGIN
         write("V1 and V2 are not orthogonal");//THEN we print this string 
     END_IF
 END
-//---------------------------FUNCTION-------------------------------------------------------------------------------------//
+//---------------------------FUNCTION  (3)-------------------------------------------------------------------------------------//
 FUNCTION dot_product(v1,v2: INTEGER[100]) : INTEGER //we declare the function and its parameters, the size and set the data type
 VAR  // we set the variable
     ps,i : INTEGER := 0;// dot product, loop index data type and value set to 0
